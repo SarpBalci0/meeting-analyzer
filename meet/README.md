@@ -1,42 +1,38 @@
-<a href="https://livekit.io/">
-  <img src="./.github/assets/livekit-mark.png" alt="LiveKit logo" width="100" height="100">
-</a>
+# Meeting Analyzer
 
-# LiveKit Meet
+A meeting app that listens to conversations, transcribes them using OpenAI Whisper, and scores how work-relevant the discussion was using GPT-4.
 
-<p>
-  <a href="https://meet.livekit.io"><strong>Try the demo</strong></a>
-  •
-  <a href="https://github.com/livekit/components-js">LiveKit Components</a>
-  •
-  <a href="https://docs.livekit.io/">LiveKit Docs</a>
-  •
-  <a href="https://livekit.io/cloud">LiveKit Cloud</a>
-  •
-  <a href="https://blog.livekit.io/">Blog</a>
-</p>
+## Built With
+- [LiveKit Meet](https://github.com/livekit-examples/meet) — video conferencing
+- OpenAI Whisper — speech to text
+- GPT-4o — work relevance scoring
+- Next.js
 
-<br>
+## How It Works
+1. Join a meeting room
+2. Talk during the meeting
+3. Click Leave when done
+4. Get redirected to a dashboard showing:
+   - Work relevance score (0-10)
+   - Meeting verdict (on-topic / mixed / off-topic)
+   - Topics discussed
+   - Full transcript
 
-LiveKit Meet is an open source video conferencing app built on [LiveKit Components](https://github.com/livekit/components-js), [LiveKit Cloud](https://cloud.livekit.io/), and Next.js. It's been completely redesigned from the ground up using our new components library.
+## Setup
 
-![LiveKit Meet screenshot](./.github/assets/livekit-meet.jpg)
-
-## Tech Stack
-
-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-- App is built with [@livekit/components-react](https://github.com/livekit/components-js/) library.
-
-## Demo
-
-Give it a try at https://meet.livekit.io.
-
-## Dev Setup
-
-Steps to get a local dev setup up and running:
-
-1. Run `pnpm install` to install all dependencies.
-2. Copy `.env.example` in the project root and rename it to `.env.local`.
-3. Update the missing environment variables in the newly created `.env.local` file.
-4. Run `pnpm dev` to start the development server and visit [http://localhost:3000](http://localhost:3000) to see the result.
-5. Start development 🎉
+1. Clone the repo
+2. Install dependencies:
+```bash
+   pnpm install
+```
+3. Copy `.env.example` to `.env.local` and fill in:
+```env
+   LIVEKIT_URL=wss://your-project.livekit.cloud
+   LIVEKIT_API_KEY=your_api_key
+   LIVEKIT_API_SECRET=your_api_secret
+   OPENAI_API_KEY=your_openai_key
+```
+4. Run:
+```bash
+   pnpm dev
+```
